@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 18px;
+  overflow: auto;
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+[draggable="true"] {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}

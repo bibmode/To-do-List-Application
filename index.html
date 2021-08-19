@@ -12,7 +12,64 @@
       href="./images/favicon-32x32.png"
     />
 
-    <title>Frontend Mentor | Todo app</title>
+    <title>Todo app</title>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="sass/main.css" />
   </head>
-  <body></body>
+  <body>
+    <img src="images/bg-desktop-dark.jpg" alt="bgimage dark" class="bg-image" />
+    <!-- <img src="images/bg-desktop-light.jpg" alt="bgimage light" class="bg-image" /> -->
+
+    <div class="container">
+      <div class="app">
+        <div class="heading">
+          <h1 class="heading__title">todo</h1>
+          <a href="#" class="heading__switch"></a>
+        </div>
+
+        <div class="input">
+          <input type="text" class="input__field" />
+          <div class="input__circle"></div>
+        </div>
+
+        <ul class="list" id="items">
+          <li class="list__item hidden active" id="list-item">
+            <input
+              type="checkbox"
+              name="item"
+              class="list__input"
+              id="item-0"
+            />
+            <label for="item-0" class="list__label"> </label>
+            <h3 class="list__words">Hello1</h3>
+            <button class="list__close"></button>
+          </li>
+        </ul>
+
+        <div class="items__menu">
+          <h4 class="items__left">
+            <span class="items__num">5</span> items left
+          </h4>
+          <div class="items__filter">
+            <a href="#" class="items__all">All</a>
+            <a href="#" class="items__active">Active</a>
+            <a href="#" class="items__completed">Completed</a>
+          </div>
+          <a href="#" class="items__clear">Clear Completed</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- jsDelivr :: Sortable :: Latest (https://www.jsdelivr.com/package/npm/sortablejs) -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>

@@ -1,0 +1,23 @@
+{
+  "name": "todo-app-main",
+  "version": "1.0.0",
+  "description": "![Design preview for the Todo app coding challenge](./design/desktop-preview.jpg)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bibmode/To-do-List-Application.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bibmode/To-do-List-Application/issues"
+  },
+  "homepage": "https://github.com/bibmode/To-do-List-Application#readme",
+  "dependencies": {
+    "sortablejs": "^1.14.0"
+  }
+}
