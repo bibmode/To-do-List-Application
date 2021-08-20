@@ -191,6 +191,10 @@
 //////////////////////////
 //UTILITIES
 
+.border-curve {
+  border-radius: 5px 5px 0 0;
+}
+
 .completed {
   opacity: 0.3;
   text-decoration: line-through var(--light-grayish-blue-trans) solid 2px;

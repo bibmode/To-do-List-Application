@@ -10,11 +10,14 @@ new Sortable(el, {
   dragClass: "sortable-drag",
 });
 
+//////////////////////
 //adding new item in list
 const inputField = document.querySelector(".input__field");
 const inputBtn = document.querySelector(".input__button");
 const listItem = document.querySelector("#list-item");
+const itemsNum = document.querySelector(".items__num");
 
+let itemsLeft = Number(itemsNum.innerText);
 let num = 1;
 
 inputField.addEventListener("keypress", function (e) {
@@ -29,17 +32,27 @@ function addNewItem(str, digit) {
   clone.childNodes[1].id = `item-${digit}`;
   clone.childNodes[3].htmlFor = `item-${digit}`;
 
+  //add event listener to close btn
+  clone.childNodes[7].addEventListener("click", removeItem);
+
   //adding clone to DOM
   listItem.after(clone);
-  console.log(clone.childNodes);
+
+  //add border curve to latest one
+  //addBorder();
 
   //adding event listener to label
   clone.childNodes[3].addEventListener("click", completed);
 
-  num++;
+  num++, itemsLeft++;
+  itemsNum.innerText = itemsLeft;
   inputField.value = "";
+
+  items = document.querySelectorAll(".list__item");
+  addCurve(items);
 }
 
+///////////////////////
 //completed state
 function completed(e) {
   const parent = e.target.parentElement;
@@ -49,13 +62,117 @@ function completed(e) {
   if (checkbox.checked) {
     words.classList.remove("completed");
     parent.classList.add("active");
-    //for check only for active or inactivity
-    console.log(parent.classList);
+
+    itemsLeft++;
+    itemsNum.innerText = itemsLeft;
   }
   if (!checkbox.checked) {
     words.classList.add("completed");
     parent.classList.remove("active");
-    //for check only for active or inactivity
-    console.log(parent.classList);
+
+    if (itemsLeft > 0) itemsLeft--;
+    itemsNum.innerText = itemsLeft;
   }
+}
+
+////////////////////////
+//removing item
+//adding event listener to btn
+function removeItem(e) {
+  const parentDiv = e.target.parentElement;
+
+  if (itemsLeft !== 0 && parentDiv.classList.contains("active")) itemsLeft--;
+  itemsNum.innerText = itemsLeft;
+
+  parentDiv.remove();
+}
+
+/////////////////
+//filtering
+
+const allBtn = document.querySelector(".items__all");
+const activeBtn = document.querySelector(".items__active");
+const completedBtn = document.querySelector(".items__completed");
+const clearBtn = document.querySelector(".items__clear");
+
+let allItems;
+
+//adding event listeners
+allBtn.addEventListener("click", showAll);
+activeBtn.addEventListener("click", showActive);
+completedBtn.addEventListener("click", showCompleted);
+clearBtn.addEventListener("click", clearCompleted);
+
+function showActive() {
+  showAll();
+  let arr = [];
+  allItems = document.querySelectorAll(".list__item");
+
+  for (let i = 1; i < allItems.length; i++) {
+    if (!allItems[i].classList.contains("active")) {
+      allItems[i].classList.add("hidden");
+    } else {
+      arr.push(allItems[i]);
+    }
+  }
+
+  console.log(arr);
+  if (arr.length > 0) borderCurve(arr[0]);
+}
+
+function showCompleted() {
+  showAll();
+  let arr = [];
+  allItems = document.querySelectorAll(".list__item");
+
+  for (let i = 1; i < allItems.length; i++) {
+    if (allItems[i].classList.contains("active")) {
+      allItems[i].classList.add("hidden");
+    } else {
+      arr.push(allItems[i]);
+    }
+  }
+  if (arr.length > 0) borderCurve(arr[0]);
+}
+
+function clearCompleted() {
+  let arr = [];
+  allItems = document.querySelectorAll(".list__item");
+
+  for (let i = 1; i < allItems.length; i++) {
+    if (!allItems[i].classList.contains("active")) {
+      allItems[i].remove();
+    } else {
+      arr.push(allItems[i]);
+    }
+  }
+
+  if (arr.length > 0) borderCurve(arr[0]);
+}
+
+function showAll() {
+  allItems = document.querySelectorAll(".list__item");
+
+  for (let i = 1; i < allItems.length; i++) {
+    if (allItems[i].classList.contains("hidden")) {
+      allItems[i].classList.remove("hidden");
+    }
+  }
+  addCurve(allItems);
+}
+
+function addCurve(allItems) {
+  console.log(allItems);
+  for (let i = 1; i < allItems.length; i++) {
+    if (allItems[i].classList.contains("border-curve")) {
+      allItems[i].classList.remove("border-curve");
+    }
+    if (i === 1) {
+      allItems[i].classList.add("border-curve");
+    }
+  }
+}
+
+function borderCurve(item) {
+  item.classList.add("border-curve");
 }
