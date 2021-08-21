@@ -25,18 +25,23 @@
     <link rel="stylesheet" href="sass/main.css" />
   </head>
   <body data-theme="">
-    <img src="images/bg-desktop-dark.jpg" alt="bgimage dark" class="bg-image" />
+    <img alt="bgimage" class="bg-image" />
     <!-- <img src="images/bg-desktop-light.jpg" alt="bgimage light" class="bg-image" /> -->
 
     <div class="container">
       <div class="app">
         <div class="heading">
           <h1 class="heading__title">todo</h1>
-          <a href="#" class="heading__switch"></a>
+          <input type="checkbox" name="switch" id="switch" />
+          <label class="heading__switch" for="switch"></label>
         </div>
 
         <div class="input">
-          <input type="text" class="input__field" />
+          <input
+            type="text"
+            class="input__field"
+            placeholder="Create a new todo..."
+          />
           <div class="input__circle"></div>
         </div>
 
@@ -54,17 +59,30 @@
           </li>
         </ul>
 
-        <div class="items__menu">
+        <div class="items__menu border-curve-all">
           <h4 class="items__left">
             <span class="items__num">0</span> items left
           </h4>
-          <div class="items__filter">
+          <div class="items__filter items__filter--1">
             <a href="#" class="items__all">All</a>
             <a href="#" class="items__active">Active</a>
             <a href="#" class="items__completed">Completed</a>
           </div>
           <a href="#" class="items__clear">Clear Completed</a>
         </div>
+
+        <div class="items__menu items__menu--2">
+          <div class="items__filter items__filter--2">
+            <a href="#" class="items__all items__all--2">All</a>
+            <a href="#" class="items__active items__active--2">Active</a>
+            <a href="#" class="items__completed items__completed--2"
+              >Completed</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="note">
+        <h5 class="note__message">Drag and drop to reorder list</h5>
       </div>
     </div>
 

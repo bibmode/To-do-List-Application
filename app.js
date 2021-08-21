@@ -1,5 +1,25 @@
 "use strict";
 
+/////////////////////
+//change theme
+const themeBtn = document.querySelector("#switch");
+const headSwitch = document.querySelector(".heading__switch");
+const backgroundImage = document.querySelector(".bg-image");
+
+const phone = window.matchMedia("(max-width: 790px)");
+const desktop = window.matchMedia("(min-width: 791px)");
+
+themeBtn.addEventListener("click", (e) => {
+  if (themeBtn.checked === true) {
+    document.body.setAttribute("data-theme", "light");
+    headSwitch.style.backgroundImage = 'url("../images/icon-moon.svg")';
+  } else {
+    document.body.setAttribute("data-theme", "");
+    headSwitch.style.backgroundImage = 'url("../images/icon-sun.svg")';
+  }
+});
+
+////////////////////
 // sortable list
 let items = document.querySelectorAll(".list__item");
 let el = document.getElementById("items");
@@ -15,7 +35,9 @@ new Sortable(el, {
 const inputField = document.querySelector(".input__field");
 const inputBtn = document.querySelector(".input__button");
 const listItem = document.querySelector("#list-item");
+
 const itemsNum = document.querySelector(".items__num");
+const menu = document.querySelector(".items__menu");
 
 let itemsLeft = Number(itemsNum.innerText);
 let num = 1;
@@ -38,9 +60,6 @@ function addNewItem(str, digit) {
   //adding clone to DOM
   listItem.after(clone);
 
-  //add border curve to latest one
-  //addBorder();
-
   //adding event listener to label
   clone.childNodes[3].addEventListener("click", completed);
 
@@ -50,6 +69,10 @@ function addNewItem(str, digit) {
 
   items = document.querySelectorAll(".list__item");
   addCurve(items);
+
+  //remove top curve of menu
+  if (menu.classList.contains("border-curve-all"))
+    menu.classList.remove("border-curve-all");
 }
 
 ///////////////////////
@@ -85,6 +108,10 @@ function removeItem(e) {
   itemsNum.innerText = itemsLeft;
 
   parentDiv.remove();
+
+  //add border radius to menu if all items are deleted
+  const listItemAll = document.querySelectorAll(".list__item");
+  if (listItemAll.length === 1) menu.classList.add("border-curve-all");
 }
 
 /////////////////
@@ -93,6 +120,11 @@ function removeItem(e) {
 const allBtn = document.querySelector(".items__all");
 const activeBtn = document.querySelector(".items__active");
 const completedBtn = document.querySelector(".items__completed");
+
+const allBtn2 = document.querySelector(".items__all--2");
+const activeBtn2 = document.querySelector(".items__active--2");
+const completedBtn2 = document.querySelector(".items__completed--2");
+
 const clearBtn = document.querySelector(".items__clear");
 
 let allItems;
@@ -101,6 +133,9 @@ let allItems;
 allBtn.addEventListener("click", showAll);
 activeBtn.addEventListener("click", showActive);
 completedBtn.addEventListener("click", showCompleted);
+allBtn2.addEventListener("click", showAll);
+activeBtn2.addEventListener("click", showActive);
+completedBtn2.addEventListener("click", showCompleted);
 clearBtn.addEventListener("click", clearCompleted);
 
 function showActive() {
@@ -116,7 +151,6 @@ function showActive() {
     }
   }
 
-  console.log(arr);
   if (arr.length > 0) borderCurve(arr[0]);
 }
 
@@ -158,11 +192,11 @@ function showAll() {
       allItems[i].classList.remove("hidden");
     }
   }
-  addCurve(allItems);
+
+  if (allItems.length > 1) borderCurve(allItems[1]);
 }
 
 function addCurve(allItems) {
-  console.log(allItems);
   for (let i = 1; i < allItems.length; i++) {
     if (allItems[i].classList.contains("border-curve")) {
       allItems[i].classList.remove("border-curve");
