@@ -32,7 +32,7 @@ Users should be able to:
 
 ### Screenshot
 
-![Screenshot](./images/Screenshot 2021-08-22 at 00-27-51 Todo app.png)
+[![Screenshot-2021-08-22-at-00-27-51-Todo-app.png](https://i.postimg.cc/TwffmRd8/Screenshot-2021-08-22-at-00-27-51-Todo-app.png)](https://postimg.cc/3ySsQQ09)
 
 ### Links
 
