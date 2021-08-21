@@ -6,16 +6,13 @@ const themeBtn = document.querySelector("#switch");
 const headSwitch = document.querySelector(".heading__switch");
 const backgroundImage = document.querySelector(".bg-image");
 
-const phone = window.matchMedia("(max-width: 790px)");
-const desktop = window.matchMedia("(min-width: 791px)");
-
 themeBtn.addEventListener("click", (e) => {
   if (themeBtn.checked === true) {
     document.body.setAttribute("data-theme", "light");
-    headSwitch.style.backgroundImage = 'url("../images/icon-moon.svg")';
+    headSwitch.style.backgroundImage = "url(../images/icon-moon.svg)";
   } else {
     document.body.setAttribute("data-theme", "");
-    headSwitch.style.backgroundImage = 'url("../images/icon-sun.svg")';
+    headSwitch.style.backgroundImage = "url(../images/icon-sun.svg)";
   }
 });
 
