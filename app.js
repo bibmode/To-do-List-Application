@@ -47,32 +47,34 @@ inputField.addEventListener("keypress", function (e) {
 });
 
 function addNewItem(str, digit) {
-  const clone = listItem.cloneNode(true);
-  clone.childNodes[5].innerHTML = str;
-  clone.classList.remove("hidden");
+  if (!!str.trim()) {
+    const clone = listItem.cloneNode(true);
+    clone.childNodes[5].innerHTML = str;
+    clone.classList.remove("hidden");
 
-  clone.childNodes[1].id = `item-${digit}`;
-  clone.childNodes[3].htmlFor = `item-${digit}`;
+    clone.childNodes[1].id = `item-${digit}`;
+    clone.childNodes[3].htmlFor = `item-${digit}`;
 
-  //add event listener to close btn
-  clone.childNodes[7].addEventListener("click", removeItem);
+    //add event listener to close btn
+    clone.childNodes[7].addEventListener("click", removeItem);
 
-  //adding clone to DOM
-  listItem.after(clone);
+    //adding clone to DOM
+    listItem.after(clone);
 
-  //adding event listener to label
-  clone.childNodes[3].addEventListener("click", completed);
+    //adding event listener to label
+    clone.childNodes[3].addEventListener("click", completed);
 
-  num++, itemsLeft++;
-  itemsNum.innerText = itemsLeft;
-  inputField.value = "";
+    num++, itemsLeft++;
+    itemsNum.innerText = itemsLeft;
+    inputField.value = "";
 
-  items = document.querySelectorAll(".list__item");
-  addCurve(items);
+    items = document.querySelectorAll(".list__item");
+    addCurve(items);
 
-  //remove top curve of menu
-  if (menu.classList.contains("border-curve-all"))
-    menu.classList.remove("border-curve-all");
+    //remove top curve of menu
+    if (menu.classList.contains("border-curve-all"))
+      menu.classList.remove("border-curve-all");
+  }
 }
 
 ///////////////////////
