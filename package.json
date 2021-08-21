@@ -19,5 +19,6 @@
   "homepage": "https://github.com/bibmode/To-do-List-Application#readme",
   "dependencies": {
     "sortablejs": "^1.14.0"
-  }
+  },
+  "devDependencies": {}
 }

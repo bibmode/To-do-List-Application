@@ -20,12 +20,12 @@ body {
 body > .bg-image {
   width: 100%;
   min-height: 303px;
-  content: url(../images/bg-desktop-dark.jpg);
+  content: url(/bg-desktop-dark.0d96dc95.jpg);
 }
 
 @media only screen and (max-width: 36.56em) {
   body > .bg-image {
-    content: url(../images/bg-mobile-dark.jpg);
+    content: url(/bg-mobile-dark.824fb2b7.jpg);
     min-height: 0;
   }
 }
@@ -48,12 +48,12 @@ body[data-theme="light"] {
 
 body[data-theme="light"] > .bg-image {
   width: 100%;
-  content: url(../images/bg-desktop-light.jpg);
+  content: url(/bg-desktop-light.6b6aa610.jpg);
 }
 
 @media only screen and (max-width: 36.56em) {
   body[data-theme="light"] > .bg-image {
-    content: url(../images/bg-mobile-light.jpg);
+    content: url(/bg-mobile-light.d5335c35.jpg);
     min-height: 0;
   }
 }
@@ -419,7 +419,7 @@ body {
 }
 
 .list__input:checked + label {
-  background-image: url(../images/check.jpg);
+  background-image: url(/check.f5347752.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -444,7 +444,7 @@ body {
 }
 
 .list__close {
-  background-image: url(../images/icon-cross.svg);
+  background-image: url(/icon-cross.861255e5.svg);
   background-color: transparent;
   background-size: cover;
   background-repeat: no-repeat;
@@ -633,4 +633,6 @@ body {
 .hidden {
   display: none;
 }
-/*# sourceMappingURL=main.css.map */
+
+
+/*# sourceMappingURL=/main.521f9405.css.map */

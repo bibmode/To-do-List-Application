@@ -5,14 +5,18 @@
 const themeBtn = document.querySelector("#switch");
 const headSwitch = document.querySelector(".heading__switch");
 const backgroundImage = document.querySelector(".bg-image");
+const iconMoon = document.querySelector(".heading__icon--moon");
+const iconSun = document.querySelector(".heading__icon--sun");
 
 themeBtn.addEventListener("click", (e) => {
   if (themeBtn.checked === true) {
     document.body.setAttribute("data-theme", "light");
-    headSwitch.style.backgroundImage = "url(../images/icon-moon.svg)";
+    iconMoon.classList.remove("hidden");
+    iconSun.classList.add("hidden");
   } else {
     document.body.setAttribute("data-theme", "");
-    headSwitch.style.backgroundImage = "url(../images/icon-sun.svg)";
+    iconMoon.classList.add("hidden");
+    iconSun.classList.remove("hidden");
   }
 });
 
