@@ -12,8 +12,6 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
 ## Overview
@@ -39,6 +37,7 @@ Users should be able to:
 ### Links
 
 - Live Site URL: [To-do Gen Live Site](https://todo-gen.netlify.app/)
+- My Solution: [My To do app Solution || Frontend mentor](https://www.frontendmentor.io/solutions/desktop-first-approach-using-scss-and-vanilla-javascript-3RR0IPAUG)
 
 ## My process
 
@@ -58,7 +57,7 @@ Users should be able to:
 - I learned how to build this project using Parcel
 - I further practiced the fluid leyout for the responsive design of this project
 
-### Continued development & Things to improve on
+### Continued development 
 
 - The drag and drop functionality of this app could be improved by making it less sensitive when user would click the radio 
 - I want to master the usage of data attributes and find out more about the things I could use it with
